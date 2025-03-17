@@ -8,17 +8,11 @@
 
 然后本身是在 Windows 系统操作的, 可能有些路径的斜杠是有问题的, 这点需要注意.
 
-本身的实现就是避免了一些不常用的库, 除开常见库所需要的就是 pytorch, ffmpeg ... 了
+本身的实现就是避免了一些不常用的库, 除开常见库所需要的就是 pytorch 用来神经网络, ffmpeg 用来合并原视频的音频.
 
 运行 video_xzc.py 就可以处理视频了, 观察代码主体是容易得到需要哪几个参数的, 目前只实现了 2倍补帧 和 插值到高分辨率.
 
 ## 遇到的小问题
 在训练的时候, 如果只观察指标和损失函数的数值, 感觉很长一段时间都是处在一个震荡的情况, 主要是通过视觉直接观察可视化来决定是否停止训练的. 一开始先用 100 左右的 三元组 去训练来确保了模型的有效性. 使用了 warmup 的学习率的策略, 但是后面因为各种原因训练奔溃 (主要是本地跑的, 显存不是很够), 就把学习率设为固定值了. 
 
-<video width="640" height="360" controls>
-<source src="video/720P.mp4" type="video/mp4">
-</video>
-
-<video width="640" height="360" controls>
-<source src="video/720P_60fps_audio.mp4" type="video/mp4">
-</video>
+结果可以查看在 [视频](https://www.bilibili.com/video/BV1ESQBYyE2n/?spm_id_from=333.1387.homepage.video_card.click&vd_source=e38456f6e111fa67d5abfda67e82f3b4)
